@@ -1,0 +1,17 @@
+{
+  "name": "embr-test-app-drizzle",
+  "version": "1.0.0",
+  "description": "Test app for Embr database integration (Drizzle + Express)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.38.0",
+    "express": "^4.21.0",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.30.0"
+  }
+}
