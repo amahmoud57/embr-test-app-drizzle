@@ -9,3 +9,5 @@ run:
 database:
   enabled: true
   engine: postgres
+  framework: drizzle
+  seed: node db/seed.js
