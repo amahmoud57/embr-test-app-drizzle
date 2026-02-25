@@ -3,9 +3,9 @@ const { pgTable, serial, text, boolean, timestamp, integer } = require('drizzle-
 const todos = pgTable('todos', {
   id: serial('id').primaryKey(),
   title: text('title').notNull(),
-  description: text('description'), // Added: optional description for todos
+  description: text('description'),
   completed: boolean('completed').default(false).notNull(),
-  priority: integer('priority').default(0).notNull(), // 0=low, 1=medium, 2=high
+  priority: integer('priority').default(0).notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
@@ -27,4 +27,12 @@ const posts = pgTable('posts', {
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
 
-module.exports = { todos, users, posts };
+// New table: categories for organizing todos
+const categories = pgTable('categories', {
+  id: serial('id').primaryKey(),
+  name: text('name').notNull(),
+  color: text('color').default('#808080'),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+});
+
+module.exports = { todos, users, posts, categories };
