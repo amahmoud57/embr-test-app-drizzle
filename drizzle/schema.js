@@ -3,8 +3,9 @@ const { pgTable, serial, text, boolean, timestamp, integer } = require('drizzle-
 const todos = pgTable('todos', {
   id: serial('id').primaryKey(),
   title: text('title').notNull(),
+  description: text('description'), // Added: optional description for todos
   completed: boolean('completed').default(false).notNull(),
-  priority: integer('priority').default(0).notNull(), // Added: todo priority (0=low, 1=medium, 2=high)
+  priority: integer('priority').default(0).notNull(), // 0=low, 1=medium, 2=high
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
