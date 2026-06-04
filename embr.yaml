@@ -13,6 +13,8 @@ dependencies:
     provides:
       - name: DATABASE_URL
         secret: true
-    database:
-      migrate: "npx drizzle-kit migrate"
-      seed: "node db/seed.js"
+
+database:
+  enabled: true
+  sync:
+    command: "npx drizzle-kit migrate"
